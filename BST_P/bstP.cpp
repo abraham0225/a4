@@ -140,11 +140,11 @@ string BST::isBalanced(node* root)
 {
     if(root == nullptr)
         return "Yes";
-    int LeftH = height(root->leftChild);
+    int leftH = height(root->leftChild);
     int rightH = height(root->rightChild);
     if(leftH - rightH > 1)
         return "Left-heavy";
-    if(rightH - LeftH > 1)
+    if(rightH - leftH > 1)
         return "Right-heavy";
     string leftResult = isBalanced(root->leftChild);
     string rightResult = isBalanced(root->rightChild);
