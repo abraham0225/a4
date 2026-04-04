@@ -7,7 +7,7 @@
 #include <sstream>
 
 using namespace std;
-
+//Node for pointer-based BST
 struct node
 {
     int data;
@@ -15,6 +15,37 @@ struct node
     node* rightChild;
 
     node(int value);
+};
+// simple custom queue for BFS
+class NodeQueue
+{
+    private:
+        node* arr[100];
+        int front;
+        int rear;
+    public:
+        NodeQueue()
+        {
+            front = 0;
+            rear = 0;
+        }
+        bool isEmpty()
+        {
+            return front == rear;
+        }
+        void enqueue(node* n)
+        {
+            arr[rear] = n;
+            rear++;
+        }
+
+        node* dequeue()
+        {
+            node* temp = arr[front];
+            front++;
+            return temp;
+
+        }
 };
 
 class BST
