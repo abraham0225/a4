@@ -34,6 +34,11 @@ class BST
         void inorder(node* root);
         void postorder(node* root);
 
+        int height(node* root);
+        int countNodes(node* root);
+        string isBalanced(node* root);
+        void BFS(node*root);
+
         void printTree(node* root, int space);
 };
 
