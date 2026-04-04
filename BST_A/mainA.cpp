@@ -4,7 +4,7 @@ int main(int argc, char* argv[])
 {
     if(argc != 2)
     {
-        cerr <<"Usage: ./a <filename>" << endl;
+        cerr << "Usage: ./a <filename>" << endl;
         return 1;
     }
 
@@ -27,21 +27,25 @@ int main(int argc, char* argv[])
         istringstream iss(line);
         int command, data;
         iss >> command;
-        
-        switch(command) {
+
+        switch(command)
+        {
             case 0:
-                cout << "Exiting ..." << endl;
+                cout << "Exiting ." << endl;
                 return 0;
+
             case 1:
                 iss >> data;
                 bst.insertI(data);
                 cout << "Insert I: " << data << endl;
                 break;
+
             case 2:
                 iss >> data;
                 bst.insertR(data);
                 cout << "Insert R: " << data << endl;
                 break;
+
             case 3:
                 iss >> data;
                 if(bst.searchI(data))
@@ -49,6 +53,7 @@ int main(int argc, char* argv[])
                 else
                     cout << data << " not found I" << endl;
                 break;
+
             case 4:
                 iss >> data;
                 if(bst.searchR(data))
@@ -56,26 +61,55 @@ int main(int argc, char* argv[])
                 else
                     cout << data << " not found R" << endl;
                 break;
+
             case 5:
-                cout << "Preoder traversal: ";
+                cout << "Preorder traversal: ";
                 bst.preorder();
                 cout << endl;
                 break;
+
             case 6:
                 cout << "Inorder traversal: ";
                 bst.inorder();
                 cout << endl;
                 break;
+
             case 7:
                 cout << "Postorder traversal: ";
                 bst.postorder();
                 cout << endl;
                 break;
+
             case 8:
                 cout << "Binary Search Tree" << endl;
                 bst.printTree(0, 0);
                 cout << endl;
                 break;
+
+            case 9:
+                cout << "Height: " << bst.height() << endl;
+                break;
+
+            case 10:
+                cout << "Count: " << bst.countNodes() << endl;
+                break;
+
+            case 11:
+                cout << "Balanced: " << bst.isBalanced() << endl;
+                break;
+
+            case 12:
+                iss >> data;
+                bst.deleteNode(data);
+                cout << "Deleted: " << data << endl;
+                break;
+
+            case 13:
+                cout << "BFS: ";
+                bst.BFS();
+                cout << endl;
+                break;
+
             default:
                 cout << "Invalid command" << endl;
         }
